@@ -1,77 +1,36 @@
-export interface Pokedex {
-  area: Area;
+export interface Teams {
+  count: number;
+  filters: Filters;
+  teams: Team[];
+}
+
+export interface Filters {
+  areas: number[];
+  permission: string;
+}
+
+export interface Team {
   id: number;
+  area: Area;
   name: string;
   shortName: string;
-  tla: string;
-  crest: string;
+  tla: null | string;
+  crestUrl: null | string;
   address: string;
+  phone: null | string;
   website: string;
-  founded: number;
-  clubColors: string;
-  venue: string;
-  runningCompetitions: RunningCompetition[];
-  coach: Coach;
-  marketValue: number;
-  squad: Squad[];
-  staff: any[];
+  email: null | string;
+  founded: number | null;
+  clubColors: null | string;
+  venue: null | string;
   lastUpdated: Date;
 }
 
 export interface Area {
   id: number;
   name: Name;
-  code: string;
-  flag: string;
 }
 
 export enum Name {
-  Argentina = "Argentina",
-  Armenia = "Armenia",
-  Colombia = "Colombia",
-  Paraguay = "Paraguay",
-  Peru = "Peru",
-}
-
-export interface Coach {
-  id: number;
-  firstName: string;
-  lastName: string;
-  name: string;
-  dateOfBirth: Date;
-  nationality: Name;
-  contract: Contract;
-}
-
-export interface Contract {
-  start: string;
-  until: string;
-}
-
-export interface RunningCompetition {
-  id: number;
-  name: string;
-  code: string;
-  type: string;
-  emblem: string;
-}
-
-export interface Squad {
-  id: number;
-  firstName: string;
-  lastName: null | string;
-  name: string;
-  position: Position;
-  dateOfBirth: Date;
-  nationality: Name;
-  shirtNumber: number | null;
-  marketValue: number;
-  contract: Contract;
-}
-
-export enum Position {
-  Defence = "Defence",
-  Goalkeeper = "Goalkeeper",
-  Midfield = "Midfield",
-  Offence = "Offence",
+  England = "England",
 }
